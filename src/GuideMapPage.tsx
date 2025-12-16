@@ -44,7 +44,7 @@ export default function GuideMapPage() {
     });
   };
 
-  const handleKey = (event: React.KeyboardEvent, type: FacilityType, action: () => void) => {
+  const handleKey = (event: React.KeyboardEvent, action: () => void) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       action();
@@ -75,7 +75,7 @@ export default function GuideMapPage() {
             role="button"
             tabIndex={0}
             onClick={() => navigate("/")}
-            onKeyDown={(e) => handleKey(e, "bathroom", () => navigate("/"))}
+            onKeyDown={(e) => handleKey(e, () => navigate("/"))}
           >
             Undr
           </div>
@@ -85,7 +85,7 @@ export default function GuideMapPage() {
             role="button"
             tabIndex={0}
             onClick={() => navigate("/settings")}
-            onKeyDown={(e) => handleKey(e, "bathroom", () => navigate("/settings"))}
+            onKeyDown={(e) => handleKey(e, () => navigate("/settings"))}
           >
             <img className="icon-img icon-setting" src="/assets/setting_icon.png" alt="환경설정" />
           </div>
@@ -100,7 +100,7 @@ export default function GuideMapPage() {
               tabIndex={0}
               aria-pressed={selected === o.key}
               onClick={() => handleSelect(o.key)}
-              onKeyDown={(e) => handleKey(e, o.key, () => handleSelect(o.key))}
+              onKeyDown={(e) => handleKey(e, () => handleSelect(o.key))}
               style={{ background: selected === o.key ? "#84E0AE" : "#d9f4e7" }}
             >
               {o.label}
@@ -118,7 +118,7 @@ export default function GuideMapPage() {
             role="button"
             tabIndex={0}
             onClick={() => {}}
-            onKeyDown={(e) => handleKey(e, "bathroom", () => {})}
+            onKeyDown={(e) => handleKey(e, () => {})}
           >
             <img className="icon-img" src="/assets/Mic.png" alt="음성" />
           </div>
@@ -128,7 +128,7 @@ export default function GuideMapPage() {
             role="button"
             tabIndex={0}
             onClick={() => {}}
-            onKeyDown={(e) => handleKey(e, "bathroom", () => {})}
+            onKeyDown={(e) => handleKey(e, () => {})}
           >
             <img className="icon-img" src="/assets/search_icon.png" alt="검색" />
           </div>
