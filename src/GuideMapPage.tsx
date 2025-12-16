@@ -4,25 +4,9 @@ import "./GuideMapPage.css";
 
 type FacilityType = "bathroom" | "baby" | "elevator" | "lift" | "fire" | "aed";
 
-type Position = {
-  leftPct: number;
-  topPct: number;
-};
-
-function makeRandomPositions(count: number): Position[] {
-  // 원본 HTML 로직: X 15~60%, Y 15~55% 범위 내 난수 배치
-  return Array.from({ length: count }, () => ({
-    leftPct: Math.random() * 45 + 15,
-    topPct: Math.random() * 40 + 15,
-  }));
-}
-
 export default function GuideMapPage() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<FacilityType | null>(null);
-  const [evPositions, setEvPositions] = useState<Position[]>(() =>
-    makeRandomPositions(3)
-  );
 
   const optionLabels: Array<{ key: FacilityType; label: string }> = useMemo(
     () => [
@@ -39,9 +23,6 @@ export default function GuideMapPage() {
   const handleSelect = (type: FacilityType) => {
     setSelected((prev) => {
       const next = prev === type ? null : type;
-      if (next === "elevator") {
-        setEvPositions(makeRandomPositions(3));
-      }
       return next;
     });
   };
