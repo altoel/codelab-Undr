@@ -1,0 +1,366 @@
+:root {
+            --primary: #6ac8a2;       
+            --primary-hover: #5dbb96;
+            --bg-btn-light: #d9f4e7;
+            --border-gray: #b5b5b5;
+            --text-dark: #000000;
+            --text-gray: #888;
+            --alert-red: #FF4D4D;
+            --white: #ffffff;
+        }
+
+        .main-root  {
+            margin: 0;
+            font-family: "Pretendard Variable", sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .main-root .container {
+            width: 100%;
+            max-width: 480px; 
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* ====================
+           1. 상단 영역
+           ==================== */
+        .main-root .top-area {
+            flex: 1.2;
+            background: var(--white);
+            padding: 40px 16px 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* 노선도 래퍼 */
+        .main-root .route-wrapper {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* 연결선 */
+        .main-root .line-bg {
+            position: absolute;
+            top: 68px;
+            left: 40px;
+            right: 40px;
+            height: 4px;
+            background: #e5e5e5; 
+            z-index: 0;
+        }
+        .main-root .line-active {
+            position: absolute;
+            top: 68px;
+            left: 40px;
+            width: 35%; 
+            height: 4px;
+            background: var(--primary);
+            z-index: 0;
+        }
+
+        /* 역 정보 컬럼 */
+        .main-root .station-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 32%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 폰트 크기 유지 */
+        .main-root .role-txt {
+            font-size: 15pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .main-root .role-txt.gray { color: #aaa; }
+
+        .main-root .dir-txt {
+            font-size: 13pt;
+            color: #888;
+            margin-bottom: 8px;
+            height: 18px;
+        }
+
+        .main-root .station-box {
+            background: white;
+            border: 2.5px solid var(--primary);
+            border-radius: 24px;
+            width: 100%;
+            padding: 14px 0;
+            text-align: center;
+            font-size: 20pt;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .main-root .info-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .main-root .status-txt {
+            font-size: 11pt;
+            color: #888;
+        }
+        .main-root .status-txt span { color: var(--alert-red); font-weight: 700; }
+
+        .main-root .main-info-txt {
+            font-size: 15pt;
+            font-weight: 800;
+            color: #222;
+        }
+        
+        .main-root .sub-txt {
+            font-size: 12pt;
+            color: #AAA;
+            font-weight: 400;
+        }
+
+        /* 안심하차 정보 박스 */
+        .main-root .safe-detail {
+            margin-top: 8px;
+            background: white;
+            border: 1px solid #EEE;
+            border-radius: 12px;
+            width: 90%;
+            padding: 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            animation: slideDown 0.3s ease;
+        }
+        .main-root .safe-detail div {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #444;
+            text-align: center;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ====================
+           2. 중단 컨트롤
+           ==================== */
+        .main-root .mid-controls {
+            margin-top: auto;
+            padding: 0 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .main-root .train-icon {
+            width: 54px;
+            height: 54px;
+            color: var(--primary);
+            opacity: 0.9;
+            margin-bottom: -4px;
+        }
+
+        .main-root .right-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        /* [수정됨] 안심하차 모드 라벨: 15pt */
+        .main-root .toggle-label {
+            font-size: 15pt; /* 20pt -> 15pt 변경 */
+            font-weight: 700;
+            color: #666;
+            margin-right: 4px;
+            margin-bottom: -4px;
+        }
+
+        .main-root .toggle-sw {
+            width: 110px;
+            height: 40px;
+            background: #E5E7EB;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            transition: 0.3s;
+        }
+        .main-root .knob {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            left: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            z-index: 2;
+        }
+        .main-root .txt-off, .txt-on {
+            font-size: 14pt;
+            font-weight: 800;
+            z-index: 1;
+            transition: 0.3s;
+        }
+        .main-root .txt-off { color: #888; margin-left: 2px; }
+        .main-root .txt-on { color: white; margin-right: 2px; opacity: 0; }
+
+        .main-root .container.active .toggle-sw { background: var(--primary); }
+        .main-root .container.active .knob { left: calc(100% - 36px); }
+        .main-root .container.active .txt-off { opacity: 0; }
+        .main-root .container.active .txt-on { opacity: 1; }
+        .main-root .container.active .safe-detail { display: flex; }
+
+        .main-root .btn-fast {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 10px 18px;
+            font-size: 14pt;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* ====================
+           3. 하단 시트
+           ==================== */
+        .main-root .bottom-sheet {
+            background: white;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            padding: 24px 16px 40px;
+            box-shadow: 0 -8px 25px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        .main-root .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 24px;
+            height: 44px;
+        }
+
+        .main-root .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .main-root .logo {
+            font-size: 34px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .main-root .icon-back {
+            font-size: 24px;
+            color: #CCC;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .main-root .back-chevron {
+            display: inline-block;
+            line-height: 1;
+            transform: translateY(-1px);
+        }
+
+        /* 설정 버튼 모양: 둥근 사각형 유지 */
+        .main-root .btn-setting {
+            position: absolute;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .main-root .btn-setting:hover { transform: scale(1.05); }
+
+        .main-root .icon-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .main-root .icon-setting {
+            width: 26px;
+            height: 26px;
+        }
+
+        .main-root .input-pill {
+            background: white;
+            border-radius: 50px;
+            padding: 16px 0;
+            text-align: center;
+            border: 1.5px solid var(--border-gray);
+            margin-bottom: 12px;
+            transition: 0.2s;
+        }
+        
+        .main-root .input-label {
+            display: block;
+            font-size: 12pt;
+            color: #BBB;
+            margin-bottom: 4px;
+        }
+        .main-root .input-val {
+            font-size: 25pt;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .main-root .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .main-root .btn-icon {
+            flex: 1;
+            background: var(--primary);
+            border-radius: 22px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.2s;
+        }

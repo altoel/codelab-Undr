@@ -1,0 +1,339 @@
+/* 테마 컬러 */
+:root {
+  --theme-color: #6ac8a2;
+  --light-theme: #d9f4e7;
+  --white: #ffffff;
+  --gray: #999999;
+  --dark: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.settings-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  position: relative;
+}
+
+/* ========== 헤더 ========== */
+.settings-header {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--theme-color);
+  padding: 40px 20px 30px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.settings-quote {
+  color: var(--white);
+  font-size: 24px !important;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.settings-logo-large {
+  display: none;
+}
+
+.settings-menu-btn {
+  position: fixed;
+  right: calc(50% - 240px + 16px);
+  top: auto;
+  bottom: 37%;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--theme-color);
+  border: none;
+  color: var(--white);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.settings-menu-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ========== 본문 ========== */
+.settings-content {
+  width: 100%;
+  max-width: 480px;
+  flex: 1;
+  padding: 30px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+}
+
+.settings-logo-small {
+  display: none;
+}
+
+/* 사용자 설정 로고 */
+.settings-logo-text {
+  font-size: 34px !important;
+  font-weight: 800;
+  color: var(--theme-color);
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+/* 섹션 */
+.settings-section {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px !important;
+  color: var(--theme-color);
+  margin-bottom: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.settings-section h2 {
+  color: #666;
+  font-size: 15pt !important;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.settings-section-user h2 {
+  color: #666;
+}
+
+.settings-section-mobility h2 {
+  color: #666;
+}
+
+.settings-section-text h2 {
+  color: #666;
+}
+
+.settings-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.settings-option-btn {
+  background-color: var(--light-theme);
+  border: none;
+  border-radius: 25px;
+  padding: 6px 12px;
+  font-size: 12pt !important;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 0 1 auto;
+}
+
+.settings-option-btn:hover {
+  background-color: var(--theme-color);
+  color: var(--white);
+}
+
+.settings-option-btn:active {
+  transform: scale(0.95);
+}
+
+.settings-option-btn.settings-text-small {
+  font-size: 16px !important;
+}
+
+.settings-option-btn.settings-text-medium {
+  font-size: 21px !important;
+}
+
+.settings-option-btn.settings-text-large {
+  font-size: 27px !important;
+}
+
+/* 마이크 버튼 */
+.settings-mic-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px;
+  padding-top: 10px;
+  margin-top: 20px;
+  background-color: var(--theme-color);
+  border: none;
+  border-radius: 15px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settings-mic-btn:hover {
+  background-color: #5dbb96;
+}
+
+.settings-mic-btn:active {
+  transform: scale(0.98);
+}
+
+/* ========== 반응형 ========== */
+@media (max-width: 768px) {
+  .settings-header {
+    padding: 30px 20px 20px;
+  }
+
+  .settings-quote {
+    font-size: 14px;
+  }
+
+  .settings-logo-large {
+    font-size: 40px;
+  }
+
+  .settings-content {
+    padding: 25px 15px 35px;
+  }
+
+  .settings-logo-small {
+    font-size: 48px;
+    margin-bottom: 25px;
+  }
+
+  .settings-logo-text {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .settings-section {
+    margin-bottom: 30px;
+  }
+
+  .settings-section h2 {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .settings-buttons-group {
+    gap: 8px;
+  }
+
+  .settings-option-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .settings-mic-btn {
+    max-width: 280px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-header {
+    padding: 25px 15px 15px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .settings-quote {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+
+  .settings-logo-large {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .settings-menu-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    right: calc(50% - 240px + 15px);
+    bottom: 24px;
+  }
+
+  .settings-content {
+    padding: 20px 12px 30px;
+  }
+
+  .settings-logo-small {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .settings-logo-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .settings-section {
+    max-width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .settings-section h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .settings-buttons-group {
+    gap: 6px;
+  }
+
+  .settings-option-btn {
+    padding: 9px 18px;
+    font-size: 12px;
+  }
+
+  .settings-mic-btn {
+    max-width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+  }
+}
+
+/* 다크 모드 지원 (선택사항) */
+@media (prefers-color-scheme: dark) {
+  .settings-container {
+    background-color: #1a1a1a;
+  }
+
+  .settings-content {
+    background-color: #1a1a1a;
+  }
+
+  .settings-section h2 {
+    color: var(--theme-color);
+  }
+
+  .settings-logo-small {
+    opacity: 0.8;
+  }
+}
