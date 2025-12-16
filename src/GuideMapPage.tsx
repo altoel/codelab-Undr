@@ -20,7 +20,9 @@ function makeRandomPositions(count: number): Position[] {
 export default function GuideMapPage() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<FacilityType | null>(null);
-  const [evPositions, setEvPositions] = useState<Position[]>(() => makeRandomPositions(3));
+  const [evPositions, setEvPositions] = useState<Position[]>(() =>
+    makeRandomPositions(3)
+  );
 
   const optionLabels: Array<{ key: FacilityType; label: string }> = useMemo(
     () => [
@@ -55,9 +57,17 @@ export default function GuideMapPage() {
     <div className="guide-root">
       <div className="container">
         <div className="map-box">
-          <img className="map-image" src="/assets/shinlim.jpg" alt="신림 지도" />
+          <img
+            className="map-image"
+            src={
+              selected === "elevator"
+                ? "/assets/shinlimMarked.png"
+                : "/assets/shinlim.png"
+            }
+            alt="신림 지도"
+          />
 
-          {selected === "elevator" &&
+          {/* {selected === "elevator" &&
             evPositions.map((pos, idx) => (
               <img
                 key={idx}
@@ -66,7 +76,7 @@ export default function GuideMapPage() {
                 alt="엘리베이터 위치"
                 style={{ left: `${pos.leftPct}%`, top: `${pos.topPct}%` }}
               />
-            ))}
+            ))} */}
         </div>
 
         <div className="header">
@@ -87,7 +97,11 @@ export default function GuideMapPage() {
             onClick={() => navigate("/settings")}
             onKeyDown={(e) => handleKey(e, () => navigate("/settings"))}
           >
-            <img className="icon-img icon-setting" src="/assets/setting_icon.png" alt="환경설정" />
+            <img
+              className="icon-img icon-setting"
+              src="/assets/setting_icon.png"
+              alt="환경설정"
+            />
           </div>
         </div>
 
@@ -130,7 +144,11 @@ export default function GuideMapPage() {
             onClick={() => {}}
             onKeyDown={(e) => handleKey(e, () => {})}
           >
-            <img className="icon-img" src="/assets/search_icon.png" alt="검색" />
+            <img
+              className="icon-img"
+              src="/assets/search_icon.png"
+              alt="검색"
+            />
           </div>
         </div>
       </div>
