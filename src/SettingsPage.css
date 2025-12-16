@@ -275,8 +275,8 @@ h1 {
     width: 40px;
     height: 40px;
     font-size: 20px;
-    right: calc(50% - 240px + 15px);
-    bottom: 24px;
+    right: calc(100% - 15px);
+    bottom: 37%;
   }
 
   .settings-content {
