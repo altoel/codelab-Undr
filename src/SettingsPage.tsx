@@ -6,10 +6,27 @@ export default function SettingsPage() {
   const [handPreference, setHandPreference] = useState<"왼손" | "오른손">("오른손");
     const [mobilityAid, setMobilityAid] = useState<"휠체어" | "지체장애" | "유모차" | null>(null);
     const [textSize, setTextSize] = useState<"작게" | "중간" | "크게">("중간");
+    const [isRecording, setIsRecording] = useState(false);
   
     const goBack = () => {
       window.history.pushState({}, "", "/");
       window.dispatchEvent(new PopStateEvent("popstate"));
+    };
+
+    const handleMicMouseDown = () => {
+      setIsRecording(true);
+    };
+
+    const handleMicMouseUp = () => {
+      setIsRecording(false);
+    };
+
+    const handleMicTouchStart = () => {
+      setIsRecording(true);
+    };
+
+    const handleMicTouchEnd = () => {
+      setIsRecording(false);
     };
   
     return (
@@ -107,8 +124,19 @@ export default function SettingsPage() {
   
           {/* 마이크 버튼과 메뉴 버튼 */}
           <div className="settings-button-container">
-            <button className="settings-mic-btn">
-              <IoMicOutline />
+            <button 
+              className={`settings-mic-btn ${isRecording ? 'recording' : ''}`}
+              onMouseDown={handleMicMouseDown}
+              onMouseUp={handleMicMouseUp}
+              onMouseLeave={handleMicMouseUp}
+              onTouchStart={handleMicTouchStart}
+              onTouchEnd={handleMicTouchEnd}
+            >
+              {isRecording ? (
+                <span className="recording-text">음성 인식 중...</span>
+              ) : (
+                <IoMicOutline />
+              )}
             </button>
             <div className="button-container-gap"></div>
             <button className="settings-menu-btn" onClick={goBack}>

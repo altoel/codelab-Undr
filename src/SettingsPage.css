@@ -193,7 +193,12 @@ h1 {
   font-size: 36px;
   color: white;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  position: relative;
 }
 
 .settings-mic-btn:hover {
@@ -202,6 +207,30 @@ h1 {
 
 .settings-mic-btn:active {
   transform: scale(0.98);
+}
+
+.settings-mic-btn.recording {
+  background-color: #6ac8a2;
+  animation: micPulse 1s infinite;
+}
+
+.recording-text {
+  font-size: 21px;
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+@keyframes micPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .button-container-gap {
