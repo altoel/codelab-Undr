@@ -146,6 +146,7 @@ export default function MainPage() {
                   setStartResults([]);
                   setEndResults([]);
                   setActiveInput(null);
+                  setShowRoutes(false);
                 }}
               >
                 Undr
