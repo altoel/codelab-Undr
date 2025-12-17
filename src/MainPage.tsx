@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./MainPage.css";
 
 // 서울 지하철 역 데이터 (중복 제거 및 확장)
@@ -83,12 +83,33 @@ const STATION_DATA = Array.from(new Set([
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const [startStation, setStartStation] = useState("");
-  const [endStation, setEndStation] = useState("");
+  const [startStation, setStartStation] = useState(() => {
+    const saved = localStorage.getItem("startStation");
+    return saved || "";
+  });
+  const [endStation, setEndStation] = useState(() => {
+    const saved = localStorage.getItem("endStation");
+    return saved || "";
+  });
   const [startResults, setStartResults] = useState<string[]>([]);
   const [endResults, setEndResults] = useState<string[]>([]);
   const [activeInput, setActiveInput] = useState<"start" | "end" | null>(null);
-  const [showRoutes, setShowRoutes] = useState(false);
+  const [showRoutes, setShowRoutes] = useState(() => {
+    const saved = localStorage.getItem("showRoutes");
+    return saved === "true";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("showRoutes", showRoutes.toString());
+  }, [showRoutes]);
+
+  useEffect(() => {
+    localStorage.setItem("startStation", startStation);
+  }, [startStation]);
+
+  useEffect(() => {
+    localStorage.setItem("endStation", endStation);
+  }, [endStation]);
 
   const onGoGuideMap = () => {
     navigate("/guide-map");
@@ -99,7 +120,7 @@ export default function MainPage() {
   };
 
   const handleSearch = () => {
-    if (startStation && endStation) {
+    if (startStation.trim() && endStation.trim()) {
       setShowRoutes(true);
     }
   };
