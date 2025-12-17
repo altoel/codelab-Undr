@@ -21,9 +21,6 @@ export default function SettingsPage() {
             <br />
             세상과 당신을 잇습니다."
           </div>
-          <button className="settings-menu-btn" onClick={goBack}>
-            ☰
-          </button>
         </div>
   
         {/* 본문 */}
@@ -108,10 +105,16 @@ export default function SettingsPage() {
             </div>
           </section>
   
-          {/* 마이크 버튼 */}
-          <button className="settings-mic-btn">
-            <IoMicOutline />
-          </button>
+          {/* 마이크 버튼과 메뉴 버튼 */}
+          <div className="settings-button-container">
+            <button className="settings-mic-btn">
+              <IoMicOutline />
+            </button>
+            <div className="button-container-gap"></div>
+            <button className="settings-menu-btn" onClick={goBack}>
+              ☰
+            </button>
+          </div>
         </div>
       </div>
     );

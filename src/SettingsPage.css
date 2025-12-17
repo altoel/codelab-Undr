@@ -52,11 +52,7 @@
 }
 
 .settings-menu-btn {
-  position: absolute;
-  right: 16px;
-  bottom: -385%;
-  width: 44px;
-  height: 44px;
+  flex: 0.8;
   border-radius: 12px;
   background-color: var(--theme-color);
   border: none;
@@ -68,7 +64,6 @@
   justify-content: center;
   transition: 0.2s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  z-index: 100;
 }
 
 .settings-menu-btn:hover {
@@ -177,13 +172,21 @@ h1 {
   font-size: 27px !important;
 }
 
-/* 마이크 버튼 */
-.settings-mic-btn {
+/* 버튼 컨테이너 */
+.settings-button-container {
   width: 100%;
   max-width: 320px;
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* 마이크 버튼 */
+.settings-mic-btn {
+  flex: 3.5;
   padding: 8px;
   padding-top: 10px;
-  margin-top: 20px;
   background-color: var(--theme-color);
   border: none;
   border-radius: 15px;
@@ -199,6 +202,10 @@ h1 {
 
 .settings-mic-btn:active {
   transform: scale(0.98);
+}
+
+.button-container-gap {
+  width: 30px;
 }
 
 /* ========== 반응형 ========== */
@@ -247,8 +254,11 @@ h1 {
     font-size: 13px;
   }
 
-  .settings-mic-btn {
+  .settings-button-container {
     max-width: 280px;
+  }
+
+  .settings-mic-btn {
     padding: 12px;
   }
 }
@@ -271,11 +281,8 @@ h1 {
   }
 
   .settings-menu-btn {
-    width: 40px;
-    height: 40px;
+    width: 50px;
     font-size: 20px;
-    right: calc(50% - 240px + 15px);
-    bottom: 37%;
   }
 
   .settings-content {
@@ -311,10 +318,14 @@ h1 {
     font-size: 12px;
   }
 
-  .settings-mic-btn {
+  .settings-button-container {
     max-width: 100%;
-    padding: 12px;
     margin-top: 15px;
+    gap: 0px;
+  }
+
+  .settings-mic-btn {
+    padding: 12px;
   }
 }
 
