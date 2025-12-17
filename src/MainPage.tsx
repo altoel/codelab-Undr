@@ -136,7 +136,20 @@ export default function MainPage() {
         <div className="bottom-sheet">
           <div className="sheet-header">
             <div className="logo-group">
-              <div className="logo">Undr</div>
+              <div
+                className="logo"
+                role="button"
+                tabIndex={0}
+                onClick={() => {
+                  setStartStation("");
+                  setEndStation("");
+                  setStartResults([]);
+                  setEndResults([]);
+                  setActiveInput(null);
+                }}
+              >
+                Undr
+              </div>
               <div className="icon-back">
                 <span className="back-chevron" aria-hidden="true"></span>
               </div>
