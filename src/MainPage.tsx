@@ -132,7 +132,7 @@ export default function MainPage() {
             </svg>
 
             <div className="right-group">
-              <button className="btn-fast">▼ 빠른경로</button>
+              <button className="btn-fast">▼ 승강기 경로</button>
             </div>
           </div>
         </div>
@@ -165,20 +165,16 @@ export default function MainPage() {
                 <input
                   className="input-val"
                   type="text"
-                  placeholder="출발역 입력"
+                  placeholder="출발지 입력"
                   value={startStation}
                   onChange={(e) => {
                     const value = e.target.value;
                     setStartStation(value);
-                    if (value.trim()) {
-                      const filtered = STATION_DATA.filter((station) =>
-                        station.includes(value)
-                      ).slice(0, 5);
-                      setStartResults(filtered);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      setStartResults(["신림역 2호선", "신대방역"]);
                       setActiveInput("start");
-                    } else {
-                      setStartResults([]);
-                      setActiveInput(null);
                     }
                   }}
                   onFocus={() => {
@@ -188,7 +184,7 @@ export default function MainPage() {
                   }}
                   onBlur={() => setTimeout(() => setActiveInput(null), 200)}
                 />
-                <span className="input-label">출발역</span>
+                <span className="input-label">출발지</span>
                 {activeInput === "start" && startResults.length > 0 && (
                   <div className="search-results">
                     {startResults.map((station, index) => (
@@ -211,21 +207,11 @@ export default function MainPage() {
                 <input
                   className="input-val"
                   type="text"
-                  placeholder="도착역 입력"
+                  placeholder="도착지 입력"
                   value={endStation}
                   onChange={(e) => {
                     const value = e.target.value;
                     setEndStation(value);
-                    if (value.trim()) {
-                      const filtered = STATION_DATA.filter((station) =>
-                        station.includes(value)
-                      ).slice(0, 5);
-                      setEndResults(filtered);
-                      setActiveInput("end");
-                    } else {
-                      setEndResults([]);
-                      setActiveInput(null);
-                    }
                   }}
                   onFocus={() => {
                     if (endStation.trim()) {
@@ -234,7 +220,7 @@ export default function MainPage() {
                   }}
                   onBlur={() => setTimeout(() => setActiveInput(null), 200)}
                 />
-                <span className="input-label">도착역</span>
+                <span className="input-label">도착지</span>
                 {activeInput === "end" && endResults.length > 0 && (
                   <div className="search-results">
                     {endResults.map((station, index) => (

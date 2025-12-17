@@ -197,7 +197,7 @@
            ==================== */
 .main-root .mid-controls {
   margin-top: auto;
-  padding: 8px 16px 12px;
+  padding: 8px 0px 16px 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -360,7 +360,8 @@
   transition: 0.2s;
 }
 .main-root .btn-setting:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  background: var(--primary-hover);
 }
 
 .main-root .icon-img {
@@ -497,6 +498,11 @@
   align-self: flex-top;
 }
 
+.main-root .search-btn:hover {
+  transform: scale(1.1);
+  background: var(--primary-hover);
+}
+
 .main-root .action-btns .btn-icon {
   flex: 1;
 }
@@ -507,6 +513,7 @@
 
 .main-root .btn-icon.recording {
   animation: micPulse 1s infinite;
+  background: var(--primary-hover);
 }
 
 .main-root .recording-text {
