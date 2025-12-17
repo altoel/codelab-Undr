@@ -213,6 +213,12 @@ export default function MainPage() {
                     const value = e.target.value;
                     setEndStation(value);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      setEndResults(["논현역", "반포역"]);
+                      setActiveInput("end");
+                    }
+                  }}
                   onFocus={() => {
                     if (endStation.trim()) {
                       setActiveInput("end");
