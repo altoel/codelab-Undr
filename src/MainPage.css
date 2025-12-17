@@ -123,6 +123,13 @@
             color: #333;
             margin-bottom: 12px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .main-root .station-box:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .main-root .info-area {
@@ -447,7 +454,7 @@
         }
 
         .main-root .recording-text {
-            font-size: 14px;
+            font-size: 21px;
             font-weight: 700;
             white-space: nowrap;
             display: flex;
