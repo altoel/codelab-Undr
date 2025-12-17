@@ -122,6 +122,8 @@ export default function MainPage() {
   const handleSearch = () => {
     if (startStation.trim() && endStation.trim()) {
       setShowRoutes(true);
+    } else {
+      setShowRoutes(false);
     }
   };
 
@@ -241,7 +243,7 @@ export default function MainPage() {
             }}
             onBlur={() => setTimeout(() => setActiveInput(null), 200)}
           />
-          <span className="input-label">출발지</span>
+          <span className="input-label">출발역</span>
           {activeInput === "start" && startResults.length > 0 && (
             <div className="search-results">
               {startResults.map((station, index) => (
@@ -287,7 +289,7 @@ export default function MainPage() {
             }}
             onBlur={() => setTimeout(() => setActiveInput(null), 200)}
           />
-          <span className="input-label">도착지</span>
+          <span className="input-label">도착역</span>
           {activeInput === "end" && endResults.length > 0 && (
             <div className="search-results">
               {endResults.map((station, index) => (
