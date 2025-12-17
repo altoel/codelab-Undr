@@ -441,3 +441,25 @@
         .main-root .btn-icon:active {
             background: #439e7a;
         }
+
+        .main-root .btn-icon.recording {
+            animation: micPulse 1s infinite;
+        }
+
+        .main-root .recording-text {
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes micPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }

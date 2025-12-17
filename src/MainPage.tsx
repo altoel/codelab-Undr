@@ -98,6 +98,7 @@ export default function MainPage() {
     const saved = localStorage.getItem("showRoutes");
     return saved === "true";
   });
+  const [isHoveringMic, setIsHoveringMic] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("showRoutes", showRoutes.toString());
@@ -125,6 +126,14 @@ export default function MainPage() {
     } else {
       setShowRoutes(false);
     }
+  };
+
+  const handleMicMouseEnter = () => {
+    setIsHoveringMic(true);
+  };
+
+  const handleMicMouseLeave = () => {
+    setIsHoveringMic(false);
   };
 
   return (
@@ -310,8 +319,18 @@ export default function MainPage() {
         </div>
 
         <div className="action-btns">
-          <div className="btn-icon" role="button" tabIndex={0}>
-            <img className="icon-img" src="/assets/Mic.png" alt="음성" />
+          <div 
+            className={`btn-icon ${isHoveringMic ? 'recording' : ''}`} 
+            role="button" 
+            tabIndex={0}
+            onMouseEnter={handleMicMouseEnter}
+            onMouseLeave={handleMicMouseLeave}
+          >
+            {isHoveringMic ? (
+              <span className="recording-text">음성 인식 중...</span>
+            ) : (
+              <img className="icon-img" src="/assets/Mic.png" alt="음성" />
+            )}
           </div>
           <div className="btn-icon" role="button" tabIndex={0} onClick={handleSearch}>
             <img className="icon-img" src="/assets/search_icon.png" alt="검색" />
