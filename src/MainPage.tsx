@@ -173,7 +173,7 @@ export default function MainPage() {
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      setStartResults(["신림역 2호선", "신대방역"]);
+                      setStartResults(["신림역", "신대방역"]);
                       setActiveInput("start");
                     }
                   }}
