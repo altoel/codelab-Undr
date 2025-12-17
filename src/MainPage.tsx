@@ -160,10 +160,6 @@ export default function MainPage() {
               <div className="sub-txt">8개역 이동</div>
             </div>
 
-            <div className="safe-detail">
-              <div>5-1</div>
-              <div>5-2</div>
-            </div>
           </div>
 
           <div className="station-col">
@@ -194,7 +190,13 @@ export default function MainPage() {
               <div className="main-info-txt">13:27</div>
               <div className="sub-txt">도착 예정</div>
             </div>
+
+            <div className="safe-detail">
+              <div>5-1</div>
+              <div>5-2</div>
+            </div>
           </div>
+          
         </div>
 
         <div className="mid-controls">
