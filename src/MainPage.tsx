@@ -19,7 +19,7 @@ export default function MainPage() {
     const saved = localStorage.getItem("showRoutes");
     return saved === "true";
   });
-  const [isHoveringMic, setIsHoveringMic] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("showRoutes", showRoutes.toString());
@@ -49,12 +49,8 @@ export default function MainPage() {
     }
   };
 
-  const handleMicMouseEnter = () => {
-    setIsHoveringMic(true);
-  };
-
-  const handleMicMouseLeave = () => {
-    setIsHoveringMic(false);
+  const handleMicClick = () => {
+    setIsRecording(!isRecording);
   };
 
   return (
@@ -262,13 +258,12 @@ export default function MainPage() {
 
           <div className="action-btns">
             <div
-              className={`btn-icon ${isHoveringMic ? "recording" : ""}`}
+              className={`btn-icon ${isRecording ? "recording" : ""}`}
               role="button"
               tabIndex={0}
-              onMouseEnter={handleMicMouseEnter}
-              onMouseLeave={handleMicMouseLeave}
+              onClick={handleMicClick}
             >
-              {isHoveringMic ? (
+              {isRecording ? (
                 <span className="recording-text">음성 인식 중...</span>
               ) : (
                 <img className="icon-img" src="/assets/Mic.png" alt="음성" />
