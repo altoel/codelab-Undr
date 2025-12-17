@@ -48,6 +48,21 @@
             justify-content: space-between;
             position: relative;
             margin-top: 20px;
+            opacity: 1;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            max-height: 1000px;
+            overflow: hidden;
+        }
+        
+        .main-root .route-wrapper.hidden {
+            opacity: 0;
+            max-height: 0;
+            margin-top: 0;
+        }
+        
+        .main-root .route-wrapper.visible {
+            opacity: 1;
+            max-height: 1000px;
         }
 
         /* 연결선 */
@@ -330,6 +345,45 @@
             border: 1.5px solid var(--border-gray);
             margin-bottom: 12px;
             transition: 0.2s;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            position: relative;
+        }
+        
+        .main-root .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1.5px solid var(--border-gray);
+            border-radius: 16px;
+            margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 100;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .main-root .search-item {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .main-root .search-item:last-child {
+            border-bottom: none;
+        }
+        
+        .main-root .search-item:hover {
+            background: #f5f5f5;
         }
         
         .main-root .input-label {
@@ -337,12 +391,31 @@
             font-size: 12pt;
             color: #BBB;
             margin-bottom: 4px;
+            min-height: 18px;
+        }
+        
+        .main-root .input-val:placeholder-shown ~ .input-label {
+            visibility: hidden;
         }
         .main-root .input-val {
+            display: block;
             font-size: 25pt;
             font-weight: 700;
             color: #333;
             line-height: 1.2;
+            min-height: 40px;
+            min-width: 100px;
+            border: none;
+            background: transparent;
+            text-align: center;
+            outline: none;
+            width: 100%;
+        }
+        
+        .main-root .input-val::placeholder {
+            font-size: 21px;
+            color: #999;
+            font-weight: 400;
         }
 
         .main-root .action-btns {
